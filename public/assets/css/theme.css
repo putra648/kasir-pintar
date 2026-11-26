@@ -1,0 +1,1067 @@
+/* ==========================================================================
+   Kasir Pintar — Modern Indigo theme (override layer for AdminLTE 3)
+   Loaded after adminlte.min.css. Keep this file last in <head>.
+   ========================================================================== */
+
+:root {
+    --brand-indigo: #4f46e5;
+    --brand-indigo-600: #4338ca;
+    --brand-indigo-100: #e0e7ff;
+
+    --bg-body: #f5f6fa;
+    --surface: #ffffff;
+    --surface-2: #f1f2f9;
+    --surface-3: #e8eaf6;
+
+    --text: #1f2333;
+    --text-muted: #6b7280;
+
+    --border: #e5e7ef;
+
+    --success: #10b981;
+    --info: #0ea5e9;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+
+    --shadow-sm: 0 1px 2px rgba(16, 24, 40, .06);
+    --shadow-md: 0 8px 24px rgba(79, 70, 229, .10);
+
+    --sidebar-bg: linear-gradient(180deg, #1e1b4b 0%, #312e81 55%, #3730a3 100%);
+
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        'Helvetica Neue', Arial, sans-serif;
+
+    --transition: .18s ease;
+}
+
+html {
+    color-scheme: light;
+}
+
+html.dark {
+    --bg-body: #0b1020;
+    --surface: #151a2e;
+    --surface-2: #1d2440;
+    --surface-3: #232b4d;
+
+    --text: #e6e8f2;
+    --text-muted: #98a2b8;
+
+    --border: #283050;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, .5);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, .45);
+
+    --sidebar-bg: linear-gradient(180deg, #090e1c 0%, #141a33 60%, #1b2340 100%);
+
+    color-scheme: dark;
+}
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-body);
+    color: var(--text);
+    font-size: .95rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -.01em;
+    color: var(--text);
+}
+
+a {
+    color: var(--brand-indigo);
+}
+
+a:hover {
+    color: var(--brand-indigo-600);
+}
+
+hr {
+    border-top: 1px solid var(--border);
+}
+
+/* --------------------------------------------------------------------------
+   Sidebar
+   -------------------------------------------------------------------------- */
+.main-sidebar.sidebar-dark-primary {
+    background: var(--sidebar-bg);
+    box-shadow: none;
+}
+
+.main-sidebar.sidebar-dark-primary .brand-link {
+    background: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+}
+
+.brand-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .14);
+    color: #fff;
+    font-size: .95rem;
+}
+
+.main-sidebar .brand-text {
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: .01em;
+    font-size: 1.02rem;
+}
+
+.main-sidebar .nav-sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    margin: 2px 10px;
+    padding: .58rem .8rem;
+    border-radius: 10px;
+    color: rgba(255, 255, 255, .78);
+    font-weight: 500;
+    transition: background-color var(--transition), color var(--transition);
+}
+
+.main-sidebar .nav-sidebar .nav-link .nav-icon {
+    width: 1.5rem;
+    margin-right: .2rem;
+    font-size: .92rem;
+    color: rgba(255, 255, 255, .62);
+    transition: color var(--transition);
+}
+
+.main-sidebar .nav-sidebar .nav-link p {
+    margin: 0;
+    line-height: 1.35;
+    font-size: .9rem;
+}
+
+.main-sidebar.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link:hover,
+.main-sidebar.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link:focus {
+    background: rgba(255, 255, 255, .09);
+    color: #fff;
+}
+
+.main-sidebar.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link:hover .nav-icon,
+.main-sidebar.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link:focus .nav-icon {
+    color: #c7d2fe;
+}
+
+.main-sidebar.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active {
+    background: linear-gradient(90deg, rgba(129, 140, 248, .30), rgba(129, 140, 248, .12));
+    color: #fff;
+    box-shadow: inset 3px 0 0 #a5b4fc;
+}
+
+.main-sidebar.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active .nav-icon {
+    color: #c7d2fe;
+}
+
+.main-sidebar .nav-header {
+    padding: .9rem 1.15rem .4rem;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .42);
+}
+
+/* Mini/collapsed sidebar: avoid margin overflow */
+.sidebar-mini.sidebar-collapse .main-sidebar .nav-sidebar .nav-link {
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+.main-header.navbar {
+    background: rgba(255, 255, 255, .88);
+    -webkit-backdrop-filter: saturate(180%) blur(10px);
+    backdrop-filter: saturate(180%) blur(10px);
+    border-bottom: 1px solid var(--border);
+    min-height: 57px;
+    padding: .25rem .85rem;
+}
+
+.main-header .nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .45rem .7rem;
+    color: var(--text-muted);
+    border-radius: 10px;
+    transition: background-color var(--transition), color var(--transition);
+}
+
+.main-header .nav-link:hover,
+.main-header .nav-link:focus {
+    background-color: var(--surface-2);
+    color: var(--brand-indigo);
+}
+
+.main-header .nav-link i {
+    font-size: .95rem;
+}
+
+.page-heading {
+    font-weight: 600;
+    font-size: .95rem;
+    color: var(--text);
+}
+
+.theme-toggle {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.theme-toggle i {
+    transition: transform .25s ease, color var(--transition);
+}
+
+.theme-toggle:hover i {
+    transform: rotate(-18deg);
+}
+
+/* --------------------------------------------------------------------------
+   Content & cards
+   -------------------------------------------------------------------------- */
+.content-wrapper {
+    background-color: var(--bg-body);
+}
+
+.content-wrapper > .row.p-2 {
+    padding: 1.1rem 1.25rem .25rem !important;
+}
+
+.content-wrapper > .container-fluid.pt-2 {
+    padding: 1.1rem 1.25rem .25rem !important;
+}
+
+.card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    color: var(--text);
+    transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.card-body {
+    padding: 1.35rem 1.4rem;
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+}
+
+/* Stat cards (dashboard) */
+.stat-card {
+    position: relative;
+    overflow: hidden;
+    border: 0;
+    color: #fff;
+    box-shadow: var(--shadow-md);
+}
+
+.stat-card:hover {
+    box-shadow: 0 16px 36px rgba(30, 27, 75, .28);
+}
+
+.stat-card .card-body {
+    position: relative;
+    z-index: 1;
+    padding: 1.2rem 1.35rem;
+    color: #fff;
+}
+
+.stat-label {
+    font-size: .71rem;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    opacity: .88;
+}
+
+.stat-value {
+    margin-top: .3rem;
+    font-size: 1.42rem;
+    font-weight: 700;
+    line-height: 1.25;
+    word-break: break-word;
+}
+
+.stat-icon {
+    position: absolute;
+    right: 14px;
+    bottom: 6px;
+    z-index: 0;
+    font-size: 3.6rem;
+    color: #fff;
+    opacity: .16;
+    transform: rotate(-8deg);
+    pointer-events: none;
+}
+
+.stat-card--indigo {
+    background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
+}
+
+.stat-card--teal {
+    background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+}
+
+.stat-card--sky {
+    background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+}
+
+.stat-card--amber {
+    background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
+}
+
+/* Product picker cards (POS) */
+.product-card {
+    border-width: 1px 1px 1px 4px;
+    border-radius: var(--radius-md);
+    transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.product-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   Tables
+   -------------------------------------------------------------------------- */
+.table {
+    color: var(--text);
+}
+
+.table td,
+.table th {
+    padding: .72rem .85rem;
+    border-top: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+.table thead th {
+    border-bottom: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: .71rem;
+    font-weight: 600;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.table .thead-light th {
+    background-color: var(--surface-2);
+    color: var(--text-muted);
+    border-color: var(--border);
+}
+
+.table-bordered {
+    border-color: var(--border);
+}
+
+.table-bordered td,
+.table-bordered th {
+    border: 1px solid var(--border);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(79, 70, 229, .045);
+    color: var(--text);
+}
+
+/* --------------------------------------------------------------------------
+   Badges
+   -------------------------------------------------------------------------- */
+.badge {
+    padding: .36em .72em;
+    border-radius: 999px;
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .01em;
+}
+
+.badge.badge-primary {
+    background-color: var(--brand-indigo-100);
+    color: #4338ca;
+}
+
+.badge.badge-success {
+    background-color: #d1fae5;
+    color: #047857;
+}
+
+.badge.badge-warning {
+    background-color: #fef3c7;
+    color: #b45309;
+}
+
+.badge.badge-danger {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+.badge.badge-info {
+    background-color: #e0f2fe;
+    color: #0369a1;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+.btn {
+    border-radius: 10px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background-color var(--transition), border-color var(--transition),
+        box-shadow var(--transition), transform var(--transition);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn-sm {
+    border-radius: 8px;
+}
+
+.btn.btn-primary {
+    --btn-bg: var(--brand-indigo);
+    --btn-bg-hover: var(--brand-indigo-600);
+    --btn-border: var(--brand-indigo);
+    --btn-fg: #fff;
+    --btn-ring: rgba(99, 102, 241, .30);
+}
+
+.btn.btn-success {
+    --btn-bg: #10b981;
+    --btn-bg-hover: #059669;
+    --btn-border: #10b981;
+    --btn-fg: #fff;
+    --btn-ring: rgba(16, 185, 129, .30);
+}
+
+.btn.btn-info {
+    --btn-bg: #0ea5e9;
+    --btn-bg-hover: #0284c7;
+    --btn-border: #0ea5e9;
+    --btn-fg: #fff;
+    --btn-ring: rgba(14, 165, 233, .30);
+}
+
+.btn.btn-warning {
+    --btn-bg: #f59e0b;
+    --btn-bg-hover: #d97706;
+    --btn-border: #f59e0b;
+    --btn-fg: #3b2502;
+    --btn-ring: rgba(245, 158, 11, .32);
+}
+
+.btn.btn-danger {
+    --btn-bg: #ef4444;
+    --btn-bg-hover: #dc2626;
+    --btn-border: #ef4444;
+    --btn-fg: #fff;
+    --btn-ring: rgba(239, 68, 68, .30);
+}
+
+.btn.btn-primary,
+.btn.btn-success,
+.btn.btn-info,
+.btn.btn-warning,
+.btn.btn-danger {
+    background-color: var(--btn-bg);
+    border-color: var(--btn-border);
+    color: var(--btn-fg);
+    box-shadow: 0 2px 8px rgba(16, 24, 40, .10);
+}
+
+.btn.btn-primary:hover,
+.btn.btn-success:hover,
+.btn.btn-info:hover,
+.btn.btn-warning:hover,
+.btn.btn-danger:hover {
+    background-color: var(--btn-bg-hover);
+    border-color: var(--btn-border);
+    color: var(--btn-fg);
+    box-shadow: 0 6px 16px rgba(16, 24, 40, .16);
+}
+
+.btn.btn-primary:focus,
+.btn.btn-primary.focus,
+.btn.btn-success:focus,
+.btn.btn-success.focus,
+.btn.btn-info:focus,
+.btn.btn-info.focus,
+.btn.btn-warning:focus,
+.btn.btn-warning.focus,
+.btn.btn-danger:focus,
+.btn.btn-danger.focus {
+    background-color: var(--btn-bg-hover);
+    border-color: var(--btn-border);
+    color: var(--btn-fg);
+    box-shadow: 0 0 0 .2rem var(--btn-ring);
+}
+
+.btn.btn-primary:not(:disabled):not(.disabled):active,
+.btn.btn-primary:not(:disabled):not(.disabled).active,
+.btn.btn-success:not(:disabled):not(.disabled):active,
+.btn.btn-success:not(:disabled):not(.disabled).active,
+.btn.btn-info:not(:disabled):not(.disabled):active,
+.btn.btn-info:not(:disabled):not(.disabled).active,
+.btn.btn-warning:not(:disabled):not(.disabled):active,
+.btn.btn-warning:not(:disabled):not(.disabled).active,
+.btn.btn-danger:not(:disabled):not(.disabled):active,
+.btn.btn-danger:not(:disabled):not(.disabled).active {
+    background-color: var(--btn-bg-hover);
+    border-color: var(--btn-border);
+    color: var(--btn-fg);
+    box-shadow: none;
+}
+
+.btn.btn-secondary {
+    background-color: #eef0f7;
+    border-color: #e3e6f0;
+    color: #414a63;
+}
+
+.btn.btn-secondary:hover,
+.btn.btn-secondary:focus,
+.btn.btn-secondary.focus {
+    background-color: #e2e6f3;
+    border-color: #d5dae9;
+    color: #222a44;
+    box-shadow: 0 4px 12px rgba(16, 24, 40, .08);
+}
+
+.btn.btn-link {
+    box-shadow: none;
+}
+
+/* --------------------------------------------------------------------------
+   Forms
+   -------------------------------------------------------------------------- */
+label {
+    font-size: .86rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: .4rem;
+}
+
+.form-control {
+    min-height: calc(2.25rem + 2px);
+    padding: .48rem .8rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--surface);
+    color: var(--text);
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-control:focus {
+    border-color: var(--brand-indigo);
+    background-color: var(--surface);
+    color: var(--text);
+    box-shadow: 0 0 0 .2rem rgba(99, 102, 241, .16);
+}
+
+.form-control::placeholder {
+    color: #9aa1b5;
+}
+
+select.form-control {
+    height: auto;
+}
+
+select.form-control option {
+    background-color: var(--surface);
+    color: var(--text);
+}
+
+.form-control-file {
+    color: var(--text);
+}
+
+.input-group-text {
+    border-color: var(--border);
+    background-color: var(--surface-2);
+    color: var(--text-muted);
+}
+
+.input-group-append > .input-group-text {
+    border-radius: 0 10px 10px 0;
+}
+
+/* --------------------------------------------------------------------------
+   Alerts
+   -------------------------------------------------------------------------- */
+.alert {
+    border: 0;
+    border-radius: var(--radius-md);
+    font-size: .9rem;
+}
+
+.alert-success {
+    background-color: #ecfdf5;
+    color: #065f46;
+}
+
+.alert-danger {
+    background-color: #fef2f2;
+    color: #991b1b;
+}
+
+.alert-warning {
+    background-color: #fffbeb;
+    color: #92400e;
+}
+
+.alert-info {
+    background-color: #eff6ff;
+    color: #1d4ed8;
+}
+
+.alert-dismissible .close {
+    color: inherit;
+    opacity: .6;
+}
+
+.alert-dismissible .close:hover {
+    opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Pagination
+   -------------------------------------------------------------------------- */
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 0 0;
+}
+
+.page-link {
+    margin: 0 .12rem;
+    padding: .4rem .7rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--surface);
+    color: var(--text);
+}
+
+.page-item:first-child .page-link {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.page-item:last-child .page-link {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.page-link:hover {
+    background-color: var(--surface-2);
+    border-color: var(--border);
+    color: var(--brand-indigo);
+}
+
+.page-item.active .page-link {
+    background-color: var(--brand-indigo);
+    border-color: var(--brand-indigo);
+    color: #fff;
+}
+
+.page-item.disabled .page-link {
+    background-color: var(--surface-2);
+    border-color: var(--border);
+    color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+.main-footer {
+    padding: .9rem 1.25rem;
+    border-top: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    font-size: .82rem;
+}
+
+/* --------------------------------------------------------------------------
+   Login
+   -------------------------------------------------------------------------- */
+.kp-login {
+    min-height: 100vh;
+    height: auto;
+    padding: 2rem 1rem;
+    background:
+        radial-gradient(1100px 520px at 8% -10%, rgba(129, 140, 248, .55), transparent 60%),
+        radial-gradient(900px 500px at 100% 100%, rgba(167, 139, 250, .35), transparent 55%),
+        linear-gradient(160deg, #eef2ff 0%, #f5f3ff 45%, #f8fafc 100%);
+}
+
+.kp-login .login-box {
+    width: 400px;
+    max-width: 94vw;
+    margin: 0;
+}
+
+.kp-login-brand {
+    margin-bottom: 1.35rem;
+    text-align: center;
+}
+
+.kp-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    margin-bottom: .75rem;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #6366f1, #4338ca);
+    color: #fff;
+    font-size: 1.35rem;
+    box-shadow: 0 12px 28px rgba(79, 70, 229, .35);
+}
+
+.kp-brand-name {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -.01em;
+    color: var(--text);
+}
+
+.kp-brand-tag {
+    margin: .2rem 0 0;
+    font-size: .82rem;
+    color: var(--text-muted);
+}
+
+.kp-login .card {
+    border: 1px solid var(--border);
+    border-top: 0;
+    border-radius: 20px;
+    box-shadow: 0 24px 60px rgba(30, 27, 75, .16);
+}
+
+.kp-login .card-body {
+    padding: 1.8rem;
+}
+
+.kp-login .login-box-msg {
+    padding: 0 0 1rem;
+    font-size: .88rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-align: left;
+}
+
+.kp-login .btn-primary {
+    min-height: 44px;
+}
+
+/* --------------------------------------------------------------------------
+   Dark mode overrides for components whose colors are hardcoded by AdminLTE
+   -------------------------------------------------------------------------- */
+html.dark body {
+    background-color: var(--bg-body);
+    color: var(--text);
+}
+
+html.dark .content-wrapper {
+    background-color: var(--bg-body);
+}
+
+html.dark .main-sidebar.sidebar-dark-primary {
+    background: var(--sidebar-bg);
+}
+
+html.dark .main-header.navbar {
+    background-color: rgba(21, 26, 46, .90);
+    border-bottom-color: var(--border);
+    color: var(--text);
+}
+
+html.dark .main-header .nav-link {
+    color: var(--text-muted);
+}
+
+html.dark .main-header .nav-link:hover,
+html.dark .main-header .nav-link:focus {
+    background-color: var(--surface-2);
+    color: #c7d2fe;
+}
+
+html.dark .page-heading {
+    color: var(--text);
+}
+
+html.dark .card {
+    background-color: var(--surface);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+html.dark .card-header {
+    background-color: transparent;
+    border-bottom-color: var(--border);
+    color: var(--text);
+}
+
+html.dark .table {
+    color: var(--text);
+}
+
+html.dark .table td,
+html.dark .table th {
+    border-color: var(--border);
+}
+
+html.dark .table thead th {
+    color: var(--text-muted);
+}
+
+html.dark .table .thead-light th {
+    background-color: var(--surface-2);
+    color: var(--text-muted);
+    border-color: var(--border);
+}
+
+html.dark .table-bordered,
+html.dark .table-bordered td,
+html.dark .table-bordered th {
+    border-color: var(--border);
+}
+
+html.dark .table-hover tbody tr:hover {
+    background-color: rgba(255, 255, 255, .045);
+    color: var(--text);
+}
+
+html.dark .form-control {
+    background-color: var(--surface-2);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+html.dark .form-control:focus {
+    background-color: var(--surface-2);
+    color: var(--text);
+}
+
+html.dark .form-control::placeholder {
+    color: #7a829e;
+}
+
+html.dark select.form-control option {
+    background-color: var(--surface);
+    color: var(--text);
+}
+
+html.dark .input-group-text {
+    background-color: var(--surface-2);
+    border-color: var(--border);
+    color: var(--text-muted);
+}
+
+html.dark .btn.btn-secondary {
+    background-color: var(--surface-2);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+html.dark .btn.btn-secondary:hover,
+html.dark .btn.btn-secondary:focus,
+html.dark .btn.btn-secondary.focus {
+    background-color: var(--surface-3);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+html.dark .alert-success {
+    background-color: rgba(16, 185, 129, .14);
+    color: #6ee7b7;
+}
+
+html.dark .alert-danger {
+    background-color: rgba(239, 68, 68, .15);
+    color: #fca5a5;
+}
+
+html.dark .alert-warning {
+    background-color: rgba(245, 158, 11, .15);
+    color: #fcd34d;
+}
+
+html.dark .alert-info {
+    background-color: rgba(14, 165, 233, .15);
+    color: #7dd3fc;
+}
+
+html.dark .badge.badge-primary {
+    background-color: rgba(99, 102, 241, .22);
+    color: #c7d2fe;
+}
+
+html.dark .badge.badge-success {
+    background-color: rgba(16, 185, 129, .18);
+    color: #6ee7b7;
+}
+
+html.dark .badge.badge-warning {
+    background-color: rgba(245, 158, 11, .18);
+    color: #fcd34d;
+}
+
+html.dark .badge.badge-danger {
+    background-color: rgba(239, 68, 68, .18);
+    color: #fca5a5;
+}
+
+html.dark .badge.badge-info {
+    background-color: rgba(14, 165, 233, .18);
+    color: #7dd3fc;
+}
+
+html.dark .page-link {
+    background-color: var(--surface);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+html.dark .page-link:hover {
+    background-color: var(--surface-2);
+    color: #c7d2fe;
+}
+
+html.dark .page-item.active .page-link {
+    background-color: var(--brand-indigo);
+    border-color: var(--brand-indigo);
+    color: #fff;
+}
+
+html.dark .page-item.disabled .page-link {
+    background-color: var(--surface-2);
+    border-color: var(--border);
+    color: #667096;
+}
+
+html.dark .main-footer {
+    border-top-color: var(--border);
+    background: transparent;
+    color: var(--text-muted);
+}
+
+html.dark hr {
+    border-top-color: var(--border);
+}
+
+html.dark .text-muted {
+    color: var(--text-muted) !important;
+}
+
+html.dark .bg-light {
+    background-color: var(--surface-2) !important;
+}
+
+html.dark .close {
+    color: var(--text);
+    text-shadow: none;
+}
+
+html.dark .invalid-feedback {
+    color: #fca5a5;
+}
+
+html.dark .kp-login {
+    background:
+        radial-gradient(1100px 520px at 8% -10%, rgba(99, 102, 241, .30), transparent 60%),
+        radial-gradient(900px 500px at 100% 100%, rgba(139, 92, 246, .22), transparent 55%),
+        linear-gradient(160deg, #0b1020 0%, #121935 55%, #0b1020 100%);
+}
+
+html.dark .kp-login .card {
+    background-color: var(--surface);
+    border-color: var(--border);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .45);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+    .main-header.navbar {
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .content-wrapper > .row.p-2,
+    .content-wrapper > .container-fluid.pt-2 {
+        padding: .8rem .8rem .25rem !important;
+    }
+
+    .card-body {
+        padding: 1.1rem;
+    }
+
+    .stat-value {
+        font-size: 1.25rem;
+    }
+
+    .page-heading {
+        font-size: .88rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Print — keep the receipt black-on-white even in dark mode
+   -------------------------------------------------------------------------- */
+@media print {
+    html,
+    html.dark,
+    html.dark body,
+    html.dark .wrapper,
+    html.dark .content-wrapper,
+    html.dark .card,
+    html.dark #strukArea,
+    html.dark #strukArea *,
+    html.dark .table,
+    html.dark .table td,
+    html.dark .table th {
+        background: #fff !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        border-color: #000 !important;
+        color-scheme: light;
+    }
+}
